@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .blog-post {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-title {
+            font-size: 24px;
+            color: #333;
+            margin: 0;
+        }
+
+        .blog-summary {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .read-more {
+            background-color: #6a11cb;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #2575fc;
+        }
+
+        .more-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-top: 1px solid #ccc;
+            background-color: #f9f9f9;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        /*
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+*/
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 4rem 2rem;
+    position: relative;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+    margin: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+}
+
+.footer-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    color: #ff6347;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section form {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+.footer-section ul {
+    list-style-type: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-section ul li a:hover {
+    color: #ff6347;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons li {
+    list-style: none;
+}
+
+.social-icons li a img {
+    width: 25px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons li a:hover img {
+    transform: scale(1.2);
+}
+
+.footer-section.contact .contact-info {
+    list-style: none;
+}
+
+.footer-section.contact .contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.footer-section.contact .contact-info li img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.footer-section.newsletter form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.footer-section.newsletter input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    width: 100%;
+}
+
+.footer-section.newsletter button {
+    padding: 0.5rem;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.footer-section.newsletter button:hover {
+    background-color: #333;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1rem;
+    background-color: #222;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+     .h1-blog{
+        font-size: 1.5em;
+    }
+
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .footer-section p,
+    .footer-section ul,
+    .footer-section form {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .footer-section p,
+    .footer-section ul,
+    .footer-section form {
+        font-size: 0.85rem;
+    }
+
+    .h1-blog{
+        font-size: 1.3em;
+    }
+
+    .footer-section.newsletter input {
+        font-size: 0.85rem;
+    }
+
+    .footer-section.newsletter button {
+        font-size: 0.85rem;
+    }
+}
+
+.p-blog{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.h1-blog{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="p1-blog">
+        <h1 class="h1-blog">
+            Unlocking the Power of Creative Solutions: Web Development, Graphic Design, and Video Editing
+        </h1>
+        <p class="p-blog">
+            Welcome to my blog, where technology meets creativity! As a Full-Stack Web Developer, Graphic Designer, and Video Editor, I’m passionate about crafting solutions that drive results and captivate audiences. Whether you're a business owner looking to boost your online presence or an individual interested in visual storytelling, this blog is dedicated to exploring the tools, trends, and techniques in web development, design, and media production.
+        </p>
+    </div>
+
+    <div class="blog-container">
+        
+        <!-- Blog Post 1 -->
+        <div class="blog-post">
+            <img src="file\pexels-hillaryfox-1595385.jpg" alt="Web Development Image" class="blog-image">
+            <div class="blog-content">
+                <h2 class="blog-title">Full-Stack Web Development: Building User-Centric Experiences</h2>
+                <p class="blog-summary">
+                    Web development is the backbone of any digital presence. As a full-stack developer, I create responsive, interactive, and visually appealing websites that work seamlessly across devices.
+                </p>
+                <button class="read-more" onclick="toggleMoreInfo(this)">Read More</button>
+                <div class="more-content">
+                    <p>Here are some key aspects I focus on:</p>
+                    <ul>
+                        <li><b>Responsive Design:</b> Ensuring websites look great on all devices, from desktops to smartphones.</li>
+                        <li><b>Interactive Features:</b> Developing user-friendly interfaces with JavaScript, Node.js, and React.js.</li>
+                        <li><b>Back-End Development:</b> Streamlining functionality with technologies like PHP, Django, and Python.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="blog-post">
+            <img src="Lusimbo Elijah (5).png" alt="Graphic Design Image" class="blog-image">
+            <div class="blog-content">
+                <h2 class="blog-title">Graphic Design: Transforming Ideas into Visual Masterpieces</h2>
+                <p class="blog-summary">
+                    Visual design plays a crucial role in how users perceive your brand. I merge art with technology to create designs that resonate with your audience.
+                </p>
+                <button class="read-more" onclick="toggleMoreInfo(this)">Read More</button>
+                <div class="more-content">
+                    <p>As a graphic designer, I focus on:</p>
+                    <ul>
+                        <li><b>Clean Layouts:</b> Prioritizing modern, clean designs for effective communication.</li>
+                        <li><b>Brand Identity:</b> Designing logos and marketing materials that capture your brand’s essence.</li>
+                        <li><b>Tools:</b> Mastery of Adobe Photoshop, Illustrator, and InDesign for creating visual impact.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="blog-post">
+            <img src="Lusimbo Elijah (7).png" alt="Video Editing Image" class="blog-image">
+            <div class="blog-content">
+                <h2 class="blog-title">Video Editing: Telling Stories Through Motion</h2>
+                <p class="blog-summary">
+                    In today’s content-driven world, video is one of the most powerful mediums to engage your audience. I specialize in editing that brings your ideas to life.
+                </p>
+                <button class="read-more" onclick="toggleMoreInfo(this)">Read More</button>
+                <div class="more-content">
+                    <p>My video editing approach includes:</p>
+                    <ul>
+                        <li><b>Storytelling:</b> Creating compelling narratives through visuals and transitions.</li>
+                        <li><b>Advanced Tools:</b> Proficiency in Adobe Premiere Pro and Final Cut Pro for professional results.</li>
+                        <li><b>Motion Graphics:</b> Enhancing videos with motion design and animation in After Effects.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleMoreInfo(button) {
+            const moreContent = button.nextElementSibling;
+            if (moreContent.style.display === "block") {
+                moreContent.style.display = "none";
+                button.textContent = "Read More";
+            } else {
+                moreContent.style.display = "block";
+                button.textContent = "Read Less";
+            }
+        }
+    </script>
+
+    <!-- Other content of the website -->
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+            <h2>About Me</h2>
+            <p>I'm a passionate professional offering Full-Stack Web Development, Graphic Design, and Video Editing services. My mission is to provide high-quality and creative solutions tailored to your needs.</p>
+            <ul class="social-icons">
+                <li><a href="https://www.facebook.com/profile.php?id=61565844088548"><img src="facebook.png" alt="Facebook"></a></li>
+                <li><a href="https://www.twitter.com"><img src="twitter.png" alt="Twitter"></a></li>
+                <li><a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram"></a></li>
+                <li><a href="https://wa.me/254114266824"><img src="social (2).png" alt="Instagram"></a></li>
+                <li><a href="https://www.linkedin.com/in/lusimbo-elijah-a9baa0229/"><img src="linkedin.png" alt="LinkedIn"></a></li>
+            </ul>
+        </div>
+
+        <!-- Links Section -->
+        <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="learn-more.html">Learn More</a></li>
+                <li><a href="cart8.html">Request for Services</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+                <li><a href="testimonial.html">Testimonials</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-section contact">
+            <h2>Contact Me</h2>
+            <ul class="contact-info">
+                <li><img src="whatsapp-business-icon.png" alt="Phone"> +254 114 266 824</li>
+                <li><img src="social.png" alt="Email"> lusimboelijah@gmail.com</li>
+                <li><img src="marker (2).png" alt="Location"> Nairobi, Kenya</li>
+            </ul>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="footer-section newsletter">
+            <h2>Newsletter</h2>
+            <p>Subscribe to My newsletter to stay updated on My latest projects and services.</p>
+            <form method="post" action="https://www.gmail.com">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p class="foter-bt">&copy; 2024 Lusimbo Elijah. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="footer-scripts.js"></script>
+
+
+</body>
+</html>

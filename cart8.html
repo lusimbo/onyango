@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Services</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .service-category, .cart {
+            flex: 1;
+            min-width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item, .cart-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-item:hover, .cart-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item button, .checkout-btn {
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .service-item button:hover, .checkout-btn:hover {
+            background-color: #218838;
+        }
+
+        .cart {
+            margin-top: 20px;
+        }
+
+        .checkout-btn {
+            background-color: #ffc107;
+            width: 100%;
+            font-size: 1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+
+
+
+
+        /*
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+*/
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 4rem 2rem;
+    position: relative;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+    margin: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+}
+
+.footer-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    color: #ff6347;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section form {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+.footer-section ul {
+    list-style-type: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-section ul li a:hover {
+    color: #ff6347;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons li {
+    list-style: none;
+}
+
+.social-icons li a img {
+    width: 25px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons li a:hover img {
+    transform: scale(1.2);
+}
+
+.footer-section.contact .contact-info {
+    list-style: none;
+}
+
+.footer-section.contact .contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.footer-section.contact .contact-info li img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.footer-section.newsletter form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.footer-section.newsletter input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    width: 100%;
+}
+
+.footer-section.newsletter button {
+    padding: 0.5rem;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.footer-section.newsletter button:hover {
+    background-color: #333;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1rem;
+    background-color: #222;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .footer-section p,
+    .footer-section ul,
+    .footer-section form {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .footer-section p,
+    .footer-section ul,
+    .footer-section form {
+        font-size: 0.85rem;
+    }
+
+    .footer-section.newsletter input {
+        font-size: 0.85rem;
+    }
+
+    .footer-section.newsletter button {
+        font-size: 0.85rem;
+    }
+}
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <h1>Available Services</h1>
+    <div class="container">
+        <!-- Full-Stack Web Development Services -->
+        <div class="service-category">
+            <h2>Full-Stack Web Development</h2>
+            <div class="service-item">
+                <h3>Website Development</h3>
+                <p>Ksh 100,000</p>
+                <button onclick="addToCart('Website Development', 100000)">Add to Cart</button>
+            </div>
+            <div class="service-item">
+                <h3>E-Commerce Development</h3>
+                <p>Ksh 150,000</p>
+                <button onclick="addToCart('E-Commerce Development', 150000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3>Project Planning an Management</h3>
+                <p>Ksh 100,000</p>
+                <button onclick="addToCart('Project Planning an Management', 100000)">Add to Cart</button>
+            </div>
+             <div class="service-item"> 
+                <h3> Personal Websites h3>
+                <p>Ksh 100,000</p>
+                <button onclick="addToCart('Personal Websites', 100000)">Add to Cart</button>
+            </div>
+
+
+            <div class="service-item">
+                <h3> Landing Pages </h3>
+                <p>Ksh 70,000</p>
+                <button onclick="addToCart('Landing Pages', 70000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Web Portals </h3>
+                <p>Ksh 100,000</p>
+                <button onclick="addToCart('Web Portals', 100000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Social Media Websites </h3>
+                <p>Ksh 90,000</p>
+                <button onclick="addToCart('Social Media Websites', 90000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Crowdfunding Websites </h3>
+                <p>Ksh 40,000</p>
+                <button onclick="addToCart('Crowdfunding Websites ', 40000)">Add to Cart</button>
+            </div>
+
+             <div class="service-item">
+                <h3> Business Websites </h3>
+                <p>Ksh 100,000</p>
+                <button onclick="addToCart('Business Websites', 100000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Portfolio Websites </h3>
+                <p>Ksh 40,000</p>
+                <button onclick="addToCart('Portfolio Websites', 40000)">Add to Cart</button>
+            </div>
+
+
+
+
+        </div>
+
+        <!-- Graphic Design Services -->
+        <div class="service-category">
+            <h2>Graphic Design</h2>
+            <div class="service-item">
+                <h3>Logo Design</h3>
+                <p>Ksh 30,000</p>
+                <button onclick="addToCart('Logo Design', 30000)">Add to Cart</button>
+            </div>
+            <div class="service-item">
+                <h3>Poster Design</h3>
+                <p>Ksh 15,000</p>
+                <button onclick="addToCart('Poster Design', 15000)">Add to Cart</button>
+            </div>
+            <div class="service-item">
+                <h3>Book Cover Design</h3>
+                <p>Ksh 20,000</p>
+                <button onclick="addToCart('Book Cover Design', 20000)">Add to Cart</button>
+            </div>
+                        <div class="service-item">
+                <h3> Motion Graphic Design </h3>
+                <p>Ksh 30,000</p>
+                <button onclick="addToCart('Motion Graphic Design', 30000)">Add to Cart</button>
+            </div>
+            <div class="service-item">
+                <h3> Marketing & Advertising Graphic Design </h3>
+                <p>Ksh 50,000</p>
+                <button onclick="addToCart('Marketing & Advertising Graphic Design ', 50000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Packaging Graphic Design </h3>
+                <p>Ksh 20,000</p>
+                <button onclick="addToCart(' Packaging Graphic Design', 20000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Publication Graphic Design h3>
+                <p>Ksh 20,000</p>
+                <button onclick="addToCart('Publication Graphic Design', 20000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> User Interface (UI) Graphic Design </h3>
+                <p>Ksh 40,000</p>
+                <button onclick="addToCart('User Interface (UI) Graphic Design', 40000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Visual Identity Graphic Design </h3>
+                <p>Ksh 20,000</p>
+                <button onclick="addToCart('Visual Identity Graphic Design ', 20000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Information Design </h3>
+                <p>Ksh 70,000</p>
+                <button onclick="addToCart('Information Design ', 70000)">Add to Cart</button>
+            </div>
+
+        </div>
+
+        <!-- Video Editing Services -->
+        <div class="service-category">
+            <h2>Video Editing</h2>
+            <div class="service-item">
+                <h3>Short Video Editing</h3>
+                <p>Ksh 60,000</p>
+                <button onclick="addToCart('Short Video Editing', 60000)">Add to Cart</button>
+            </div>
+            <div class="service-item">
+                <h3>Long Video Editing</h3>
+                <p>Ksh 100,000</p>
+                <button onclick="addToCart('Long Video Editing', 100000)">Add to Cart</button>
+            </div>
+            <div class="service-item">
+                <h3> Sound Editor </h3>
+                <p>Ksh 100,000</p>
+                <button onclick="addToCart(' Sound Editor', 100000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Insert Editing </h3>
+                <p>Ksh 10,000</p>
+                <button onclick="addToCart('Insert Editing', 10000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Bespoke Editing </h3>
+                <p>Ksh 100,000</p>
+                <button onclick="addToCart('Bespoke Editing ', 100000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Assemble Editing </h3>
+                <p>Ksh 100,000</p>
+                <button onclick="addToCart('Assemble Editing', 100000)">Add to Cart</button>
+            </div>
+
+
+
+
+            <div class="service-item">
+                <h3> Simple Cutting</h3>
+                <p>Ksh 10,000</p>
+                <button onclick="addToCart('Simple Cutting', 10000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Non-Linear Video Editing (NLE)h3>
+                <p>Ksh 15,000</p>
+                <button onclick="addToCart('Non-Linear Video Editing ', 15000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Real-Time Video Editing </h3>
+                <p>Ksh 100,000</p>
+                <button onclick="addToCart('Real-Time Video Editing', 100000)">Add to Cart</button>
+            </div>
+
+            <div class="service-item">
+                <h3> Online Editing</h3>
+                <p>Ksh 20,000</p>
+                <button onclick="addToCart('Online Editing', 20000)">Add to Cart</button>
+            </div>
+
+        
+        </div>
+    </div>
+
+    <div class="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(serviceName, price) {
+            const existingItem = cart.find(item => item.service === serviceName);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ service: serviceName, price: price, quantity: 1 });
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <h4>${item.service}</h4>
+                    <p>Ksh ${item.price} x ${item.quantity} = Ksh ${item.price * item.quantity}</p>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const message = cart.map(item => `${item.service} x ${item.quantity} at Ksh ${item.price * item.quantity}`).join(', ');
+            const totalAmount = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=254114266824&text=New Order: ${message}. Total: Ksh ${totalAmount}`;
+            window.open(whatsappUrl, '_blank');
+
+            // Clear the cart after checkout
+            cart = [];
+            updateCart();
+        }
+    </script>
+
+
+     <!-- Other content of the website -->
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+            <h2>About Me</h2>
+            <p>I'm a passionate professional offering Full-Stack Web Development, Graphic Design, and Video Editing services. My mission is to provide high-quality and creative solutions tailored to your needs.</p>
+            <ul class="social-icons">
+                <li><a href="https://www.facebook.com/profile.php?id=61565844088548"><img src="facebook.png" alt="Facebook"></a></li>
+                <li><a href="https://www.twitter.com"><img src="twitter.png" alt="Twitter"></a></li>
+                <li><a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram"></a></li>
+                <li><a href="https://wa.me/254114266824"><img src="social (2).png" alt="Instagram"></a></li>
+                <li><a href="https://www.linkedin.com/in/lusimbo-elijah-a9baa0229/"><img src="linkedin.png" alt="LinkedIn"></a></li>
+            </ul>
+        </div>
+
+        <!-- Links Section -->
+        <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="learn-more.html">Learn More</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+                <li><a href="testimonial.html">Testimonials</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-section contact">
+            <h2>Contact Me</h2>
+            <ul class="contact-info">
+                <li><img src="whatsapp-business-icon.png" alt="Phone"> +254 114 266 824</li>
+                <li><img src="social.png" alt="Email"> lusimboelijah@gmail.com</li>
+                <li><img src="marker (2).png" alt="Location"> Nairobi, Kenya</li>
+            </ul>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="footer-section newsletter">
+            <h2>Newsletter</h2>
+            <p>Subscribe to My newsletter to stay updated on My latest projects and services.</p>
+            <form method="post" action="https://www.gmail.com">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p class="foter-bt">&copy; 2024 Lusimbo Elijah. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="footer-scripts.js"></script>
+
+
+
+</body>
+</html>
